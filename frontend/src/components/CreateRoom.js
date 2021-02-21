@@ -48,7 +48,7 @@ export default class CreateRoomPage extends Component {
     };
     fetch("/api/create-room", requestOptions)
       .then((response) => response.json())
-      .then((data) => this.props.history.push('/room/' + data.code));
+      .then((data) => this.props.history.push("/room/" + data.code));
   }
 
   render() {
@@ -56,7 +56,7 @@ export default class CreateRoomPage extends Component {
       <Grid container spacing={1}>
         <Grid item xs={12} align="center">
           <Typography component="h4" variant="h4">
-            Create A Room
+            {this.props.update ? `Update Room: ${this.props.roomCode}`: 'Create A Room'}
           </Typography>
         </Grid>
         <Grid item xs={12} align="center">
@@ -107,7 +107,7 @@ export default class CreateRoomPage extends Component {
             variant="contained"
             onClick={this.handleRoomButtonPressed}
           >
-            Create A Room
+           {this.props.update ? 'Update' : 'Create A Room'} 
           </Button>
         </Grid>
         <Grid item xs={12} align="center">
