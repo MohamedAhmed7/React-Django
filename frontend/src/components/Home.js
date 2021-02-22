@@ -3,6 +3,8 @@ import {render} from 'react-dom';
 import CreateRoom from './CreateRoom';
 import JoinRoom from './JoinRoom';
 import Room from './Room';
+import Info from './Info';
+
 import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route, Link, Redirect} from 'react-router-dom';
 export default class Home extends Component{
@@ -44,6 +46,9 @@ export default class Home extends Component{
                 <Button color="primary" to="/join" component={Link}>
                   Join a Room
                 </Button>
+                <Button color="default" to="/info" component={Link}>
+                Info
+              </Button>
                 <Button color="secondary" to="/create" component={Link}>
                   Create a Room
                 </Button>
@@ -69,6 +74,7 @@ export default class Home extends Component{
                 }}
               />
               <Route path="/join" component={JoinRoom} />
+              <Route path='/info' component={Info}/>
               <Route path="/create" component={CreateRoom} />
               <Route
                 path="/room/:roomCode"
